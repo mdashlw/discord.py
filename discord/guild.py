@@ -303,8 +303,8 @@ class Guild(Hashable):
         self.preferred_locale = guild.get('preferred_locale')
         self.discovery_splash = guild.get('discovery_splash')
         self._rules_channel_id = utils._get_as_snowflake(guild, 'rules_channel_id')
-        self.approximate_presence_count = data.get('approximate_presence_count')
-        self.approximate_member_count = data.get('approximate_member_count')
+        self.approximate_presence_count = guild.get('approximate_presence_count')
+        self.approximate_member_count = guild.get('approximate_member_count')
 
         for mdata in guild.get('members', []):
             member = Member(data=mdata, guild=self, state=state)
