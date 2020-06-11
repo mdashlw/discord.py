@@ -50,7 +50,7 @@ async def json_or_text(response):
     return text
 
 class Route:
-    BASE = 'https://discordapp.com/api/v7'
+    BASE = 'https://discord.com/api/v7'
 
     def __init__(self, method, path, **parameters):
         self.path = path
@@ -529,7 +529,8 @@ class HTTPClient:
     def edit_channel(self, channel_id, *, reason=None, **options):
         r = Route('PATCH', '/channels/{channel_id}', channel_id=channel_id)
         valid_keys = ('name', 'parent_id', 'topic', 'bitrate', 'nsfw',
-                      'user_limit', 'position', 'permission_overwrites', 'rate_limit_per_user')
+                      'user_limit', 'position', 'permission_overwrites', 'rate_limit_per_user',
+                      'type')
         payload = {
             k: v for k, v in options.items() if k in valid_keys
         }
@@ -623,7 +624,8 @@ class HTTPClient:
                       'afk_channel_id', 'splash', 'verification_level',
                       'system_channel_id', 'default_message_notifications',
                       'description', 'explicit_content_filter', 'banner',
-                      'system_channel_flags')
+                      'system_channel_flags', 'rules_channel_id',
+                      'public_updates_channel_id')
 
         payload = {
             k: v for k, v in fields.items() if k in valid_keys

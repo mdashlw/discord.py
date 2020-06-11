@@ -27,7 +27,7 @@ DEALINGS IN THE SOFTWARE.
 from collections import namedtuple
 
 import discord.abc
-from .public_flags import PublicUserFlags
+from .flags import PublicUserFlags
 from .utils import snowflake_time, _bytes_to_base64_data, parse_time
 from .enums import DefaultAvatar, RelationshipType, UserFlags, HypeSquadHouse, PremiumType, try_enum
 from .errors import ClientException
@@ -134,7 +134,7 @@ class BaseUser(_BaseUser):
 
     @property
     def public_flags(self):
-        """:class:`PublicFlags`: The publicly available flags the user has."""
+        """:class:`PublicUserFlags`: The publicly available flags the user has."""
         return PublicUserFlags._from_value(self._public_flags)
 
     @property
