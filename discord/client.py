@@ -1020,9 +1020,6 @@ class Client:
         """
         return GuildIterator(self, limit=limit, before=before, after=after)
 
-<<<<<<< HEAD
-    async def fetch_guild(self, guild_id, *, with_counts=True):
-=======
     async def fetch_template(self, code):
         """|coro|
 
@@ -1049,8 +1046,7 @@ class Client:
         data = await self.http.get_template(code)
         return Template(data=data, state=self._connection)
 
-    async def fetch_guild(self, guild_id):
->>>>>>> upstream/master
+    async def fetch_guild(self, guild_id, *, with_counts=True):
         """|coro|
 
         Retrieves a :class:`.Guild` from an ID.
