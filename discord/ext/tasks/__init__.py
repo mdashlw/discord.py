@@ -27,7 +27,6 @@ DEALINGS IN THE SOFTWARE.
 import asyncio
 import datetime
 import aiohttp
-import websockets
 import discord
 import inspect
 import logging
@@ -53,13 +52,10 @@ class Loop:
         self._injected = None
         self._valid_exception = (
             OSError,
-            discord.HTTPException,
             discord.GatewayNotFound,
             discord.ConnectionClosed,
             aiohttp.ClientError,
             asyncio.TimeoutError,
-            websockets.InvalidHandshake,
-            websockets.WebSocketProtocolError,
         )
 
         self._before_loop = None
